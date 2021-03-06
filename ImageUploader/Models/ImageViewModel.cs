@@ -6,9 +6,9 @@ using System.Web;
 
 namespace ImageUploader.Models
 {
-    public class ProfileViewModel
+    public class ImageViewModel
     {
-        public string ProfileImage
+        public string Image
         {
             get;
             set;

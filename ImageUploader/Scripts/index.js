@@ -1,6 +1,6 @@
 ﻿(function ($) {  
   
-    function ProfileIndex() {  
+    function HomeIndex() {  
         var $this = this;  
   
         function intialize() {  
@@ -26,7 +26,7 @@
     }  
   
     $(function () {  
-        var self = new ProfileIndex();  
+        var self = new HomeIndex();  
         self.init();  
     })  
   

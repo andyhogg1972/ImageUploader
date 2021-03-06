@@ -1,14 +1,14 @@
-﻿@model ImageUploader.Models.ProfileViewModel
+﻿@model ImageUploader.Models.ImageViewModel
 
 <div class="row">
     <div class="col-lg-6">
-        @using (Html.BeginForm("Index", "Profile", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", role = "form" }))
         {
 
             <h4>Upload Image</h4>
             <hr />
             <div class="form-group">
-                @Html.LabelFor(m => m.ProfileImage, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(m => m.Image, new { @class = "col-md-2 control-label" })
 
                 <div class="col-md-10">
                     <input type="file" name="profileFile" id="profileFile" />
@@ -36,7 +36,7 @@
             @foreach (var image in Model.FileInfos)
             {
 
-                <div class="col-lg-3">
+                <div class="col-lg-3 thumbnail" >
                     <img src="~/images/@image.Name" alt="@image.Name" class="img-circle">
                 </div>
             }
@@ -46,5 +46,5 @@
 </div>
 
 @section Scripts{
-    @Scripts.Render("~/Scripts/profile-index.js")
+    @Scripts.Render("~/Scripts/index.js")
 }    
