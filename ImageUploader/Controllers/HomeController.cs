@@ -40,5 +40,24 @@ namespace ImageUploader.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult ProcessImage(string base64image)
+        {
+            if (string.IsNullOrEmpty(base64image))
+                return RedirectToAction("Index"); ;
+
+            var imageString = base64image.Substring(22); //remove data:image/png;base64,
+
+            byte[] bytes = Convert.FromBase64String(imageString);
+
+            MemoryStream byteStream = new MemoryStream(bytes);
+
+            string targetPath = System.IO.Path.Combine(Server.MapPath("~/images"), "uploadedpic.png");
+
+            _imageManipulator.ResizeImageBytes(byteStream, targetPath);
+
+            return RedirectToAction("Index");
+        }
     }
 }
